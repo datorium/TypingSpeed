@@ -16,5 +16,20 @@ namespace TypingSpeed
         {
             InitializeComponent();
         }
+
+        private void CloseButton_MouseEnter(object sender, EventArgs e)
+        {
+            CloseButton.Image = Properties.Resources.close_red;
+        }
+
+        private void CloseButton_MouseLeave(object sender, EventArgs e)
+        {
+            CloseButton.Image = Properties.Resources.close_blue;
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
