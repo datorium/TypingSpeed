@@ -34,13 +34,20 @@ namespace TypingSpeed
 
         private void TargetText_TextChanged(object sender, EventArgs e)
         {
-
+            if (TextsAreIdentical())
+            {
+                AllowTyping();
+            }
+            else
+            {
+                BlockTyping();
+            }
         }
 
         private bool TextsAreIdentical()
         {
             int charCount = TargetText.Text.Length;
-            string sourceSubstring = SourceText.Text.Substring(charCount);
+            string sourceSubstring = SourceText.Text.Substring(0, charCount);
             if(TargetText.Text == sourceSubstring)
             {
                 return true;
@@ -49,6 +56,18 @@ namespace TypingSpeed
             {
                 return false;
             }
+        }
+
+        private void AllowTyping()
+        {
+            TargetText.MaxLength = SourceText.Text.Length;
+            TargetText.ForeColor = Color.Black;
+        }
+
+        private void BlockTyping()
+        {
+            TargetText.MaxLength = TargetText.Text.Length;
+            TargetText.ForeColor = Color.Red;
         }
 
 
