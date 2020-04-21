@@ -31,5 +31,26 @@ namespace TypingSpeed
         {
             Application.Exit();
         }
+
+        private void TargetText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private bool TextsAreIdentical()
+        {
+            int charCount = TargetText.Text.Length;
+            string sourceSubstring = SourceText.Text.Substring(charCount);
+            if(TargetText.Text == sourceSubstring)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
     }
 }

@@ -117,4 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="SourceText.Text" xml:space="preserve">
+    <value>On a traditional computer, solving a complicated problem is a matter of searching around the internet until you discover a new ability or find a fix. It might be beyond your skills, but you rarely are stopped cold.</value>
+  </data>
 </root>
