@@ -1,6 +1,6 @@
 ﻿namespace TypingSpeed
 {
-    partial class Form1
+    partial class Body
     {
         /// <summary>
         /// Required designer variable.
@@ -31,6 +31,7 @@
             this.labelTextOriginal = new System.Windows.Forms.Label();
             this.textBoxTextType = new System.Windows.Forms.TextBox();
             this.pictureBoxClose = new System.Windows.Forms.PictureBox();
+            this.TypingProgress = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.SuspendLayout();
             // 
@@ -39,7 +40,7 @@
             this.labelTextOriginal.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTextOriginal.Location = new System.Drawing.Point(26, 26);
             this.labelTextOriginal.Name = "labelTextOriginal";
-            this.labelTextOriginal.Size = new System.Drawing.Size(748, 104);
+            this.labelTextOriginal.Size = new System.Drawing.Size(748, 92);
             this.labelTextOriginal.TabIndex = 0;
             this.labelTextOriginal.Text = "A contango market implies oil traders believe crude prices will rally in the futu" +
     "re, encouraging them to store oil now and to sell at a later date.";
@@ -69,12 +70,20 @@
             this.pictureBoxClose.MouseEnter += new System.EventHandler(this.pictureBoxClose_MouseEnter);
             this.pictureBoxClose.MouseLeave += new System.EventHandler(this.pictureBoxClose_MouseLeave);
             // 
+            // TypingProgress
+            // 
+            this.TypingProgress.Location = new System.Drawing.Point(31, 129);
+            this.TypingProgress.Name = "TypingProgress";
+            this.TypingProgress.Size = new System.Drawing.Size(719, 23);
+            this.TypingProgress.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(783, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.TypingProgress);
             this.Controls.Add(this.pictureBoxClose);
             this.Controls.Add(this.textBoxTextType);
             this.Controls.Add(this.labelTextOriginal);
@@ -91,6 +100,7 @@
         private System.Windows.Forms.Label labelTextOriginal;
         private System.Windows.Forms.TextBox textBoxTextType;
         private System.Windows.Forms.PictureBox pictureBoxClose;
+        private System.Windows.Forms.ProgressBar TypingProgress;
     }
 }
 

@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace TypingSpeed
 {
-    public partial class Form1 : Form
+    public partial class Body : Form
     {
-        public Form1()
+        public Body()
         {
             InitializeComponent();
+            InitializeTypingProgress();
+        }
+
+        private void InitializeTypingProgress()
+        {
+            TypingProgress.Maximum = labelTextOriginal.Text.Length;
         }
 
         private void pictureBoxClose_MouseEnter(object sender, EventArgs e)
@@ -42,6 +48,7 @@ namespace TypingSpeed
             if (TextsAreSame())
             {
                 AllowTyping();
+                TypingProgress.Value += 1;
             }
             else
             {
