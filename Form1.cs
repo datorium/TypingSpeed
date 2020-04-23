@@ -12,8 +12,7 @@ namespace TypingSpeed
 {
     public partial class Body : Form
     {
-
-        int oldCharacterCount = 0;
+        int sec = 0;        
 
         public Body()
         {
@@ -57,36 +56,49 @@ namespace TypingSpeed
                 //block and change color to red
                 BlockTyping();
             }
-            ChangeProgressBar();
-            oldCharacterCount = textBoxTextType.Text.Length;
+            ChangeProgressBar();            
+            if (TimeProgress.Value == 0)
+            {
+                TypingTimer.Start();
+            }
         }
 
         private void ChangeProgressBar()
         {
-            if(textBoxTextType.Text.Length > oldCharacterCount)
+            try
             {
-                try
-                {
-                    TypingProgress.Value += 1;
-                }
-                catch
-                {
-
-                }
-                
+                TypingProgress.Value = textBoxTextType.Text.Length;
             }
-            else if(textBoxTextType.Text.Length < oldCharacterCount)
+            catch
             {
-                try
-                {
-                    TypingProgress.Value -= 1;
-                }
-                catch
-                {
 
-                }
+            }            
+
+
+            //if (textBoxTextType.Text.Length > oldCharacterCount)
+            //{
+            //    try
+            //    {
+            //        TypingProgress.Value += 1;
+            //    }
+            //    catch
+            //    {
+
+            //    }
                 
-            }
+            //}
+            //else if(textBoxTextType.Text.Length < oldCharacterCount)
+            //{
+            //    try
+            //    {
+            //        TypingProgress.Value -= 1;
+            //    }
+            //    catch
+            //    {
+
+            //    }
+                
+            //}
             
         }
 
@@ -116,6 +128,31 @@ namespace TypingSpeed
         {
             textBoxTextType.MaxLength = labelTextOriginal.Text.Length;
             textBoxTextType.ForeColor = Color.Black;
+        }
+
+        private void TypingTimer_Tick(object sender, EventArgs e)
+        {
+            if(sec == 60)
+            {
+                GameOver();
+            }
+            try
+            {
+                sec += 1;
+                TimeProgress.Value  = sec;
+            }
+            catch
+            {
+
+            }            
+        }
+
+        private void GameOver()
+        {            
+            int charPerMin = textBoxTextType.Text.Length * 60 / sec;
+            TypingTimer.Stop();
+            textBoxTextType.MaxLength = textBoxTextType.Text.Length;
+            MessageBox.Show("Your speed is: " + charPerMin);
         }
     }
 }

@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelTextOriginal = new System.Windows.Forms.Label();
             this.textBoxTextType = new System.Windows.Forms.TextBox();
             this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             this.TypingProgress = new System.Windows.Forms.ProgressBar();
+            this.TypingTimer = new System.Windows.Forms.Timer(this.components);
+            this.TimeProgress = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,10 +51,10 @@
             // textBoxTextType
             // 
             this.textBoxTextType.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTextType.Location = new System.Drawing.Point(31, 159);
+            this.textBoxTextType.Location = new System.Drawing.Point(31, 191);
             this.textBoxTextType.Multiline = true;
             this.textBoxTextType.Name = "textBoxTextType";
-            this.textBoxTextType.Size = new System.Drawing.Size(719, 167);
+            this.textBoxTextType.Size = new System.Drawing.Size(719, 132);
             this.textBoxTextType.TabIndex = 1;
             this.textBoxTextType.Click += new System.EventHandler(this.A);
             this.textBoxTextType.TextChanged += new System.EventHandler(this.textBoxTextType_TextChanged);
@@ -60,7 +63,7 @@
             // 
             this.pictureBoxClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxClose.Image = global::TypingSpeed.Properties.Resources.close_blue;
-            this.pictureBoxClose.Location = new System.Drawing.Point(670, 345);
+            this.pictureBoxClose.Location = new System.Drawing.Point(670, 348);
             this.pictureBoxClose.Name = "pictureBoxClose";
             this.pictureBoxClose.Size = new System.Drawing.Size(80, 80);
             this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -72,22 +75,36 @@
             // 
             // TypingProgress
             // 
-            this.TypingProgress.Location = new System.Drawing.Point(31, 129);
+            this.TypingProgress.Location = new System.Drawing.Point(31, 161);
             this.TypingProgress.Name = "TypingProgress";
             this.TypingProgress.Size = new System.Drawing.Size(719, 23);
             this.TypingProgress.TabIndex = 3;
             // 
-            // Form1
+            // TypingTimer
+            // 
+            this.TypingTimer.Interval = 1000;
+            this.TypingTimer.Tick += new System.EventHandler(this.TypingTimer_Tick);
+            // 
+            // TimeProgress
+            // 
+            this.TimeProgress.Location = new System.Drawing.Point(31, 131);
+            this.TimeProgress.Maximum = 60;
+            this.TimeProgress.Name = "TimeProgress";
+            this.TimeProgress.Size = new System.Drawing.Size(719, 23);
+            this.TimeProgress.TabIndex = 4;
+            // 
+            // Body
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(783, 450);
+            this.ClientSize = new System.Drawing.Size(783, 441);
             this.ControlBox = false;
+            this.Controls.Add(this.TimeProgress);
             this.Controls.Add(this.TypingProgress);
             this.Controls.Add(this.pictureBoxClose);
             this.Controls.Add(this.textBoxTextType);
             this.Controls.Add(this.labelTextOriginal);
-            this.Name = "Form1";
+            this.Name = "Body";
             this.Text = "Datorium Typing Speed App";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.ResumeLayout(false);
@@ -101,6 +118,8 @@
         private System.Windows.Forms.TextBox textBoxTextType;
         private System.Windows.Forms.PictureBox pictureBoxClose;
         private System.Windows.Forms.ProgressBar TypingProgress;
+        private System.Windows.Forms.Timer TypingTimer;
+        private System.Windows.Forms.ProgressBar TimeProgress;
     }
 }
 
