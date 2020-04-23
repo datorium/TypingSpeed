@@ -12,6 +12,9 @@ namespace TypingSpeed
 {
     public partial class Body : Form
     {
+
+        int oldCharacterCount = 0;
+
         public Body()
         {
             InitializeComponent();
@@ -48,13 +51,43 @@ namespace TypingSpeed
             if (TextsAreSame())
             {
                 AllowTyping();
-                TypingProgress.Value += 1;
+                ChangeProgressBar(); 
             }
             else
             {
                 //block and change color to red
                 BlockTyping();
             }
+            oldCharacterCount = textBoxTextType.Text.Length;
+        }
+
+        private void ChangeProgressBar()
+        {
+            if(textBoxTextType.Text.Length > oldCharacterCount)
+            {
+                try
+                {
+                    TypingProgress.Value += 1;
+                }
+                catch
+                {
+
+                }
+                
+            }
+            else if(textBoxTextType.Text.Length < oldCharacterCount)
+            {
+                try
+                {
+                    TypingProgress.Value -= 1;
+                }
+                catch
+                {
+
+                }
+                
+            }
+            
         }
 
         private bool TextsAreSame()
