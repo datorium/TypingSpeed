@@ -50,14 +50,14 @@ namespace TypingSpeed
         {
             if (TextsAreSame())
             {
-                AllowTyping();
-                ChangeProgressBar(); 
+                AllowTyping();                
             }
             else
             {
                 //block and change color to red
                 BlockTyping();
             }
+            ChangeProgressBar();
             oldCharacterCount = textBoxTextType.Text.Length;
         }
 
