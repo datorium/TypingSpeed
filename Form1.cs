@@ -15,6 +15,12 @@ namespace TypingSpeed
         public Form1()
         {
             InitializeComponent();
+            InitializeProgressBars();
+        }
+
+        private void InitializeProgressBars()
+        {
+            TypingProgress.Maximum = SourceText.Text.Length;
         }
 
         private void CloseButton_MouseEnter(object sender, EventArgs e)
@@ -37,6 +43,7 @@ namespace TypingSpeed
             if (TextsAreIdentical())
             {
                 AllowTyping();
+                TypingProgress.Value += 1;
             }
             else
             {

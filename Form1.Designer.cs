@@ -32,6 +32,7 @@
             this.SourceText = new System.Windows.Forms.Label();
             this.TargetText = new System.Windows.Forms.TextBox();
             this.CloseButton = new System.Windows.Forms.PictureBox();
+            this.TypingProgress = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.CloseButton)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,14 +42,14 @@
             this.SourceText.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SourceText.Location = new System.Drawing.Point(12, 9);
             this.SourceText.Name = "SourceText";
-            this.SourceText.Size = new System.Drawing.Size(759, 146);
+            this.SourceText.Size = new System.Drawing.Size(759, 104);
             this.SourceText.TabIndex = 0;
             this.SourceText.Text = resources.GetString("SourceText.Text");
             // 
             // TargetText
             // 
             this.TargetText.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TargetText.Location = new System.Drawing.Point(12, 170);
+            this.TargetText.Location = new System.Drawing.Point(12, 213);
             this.TargetText.Multiline = true;
             this.TargetText.Name = "TargetText";
             this.TargetText.Size = new System.Drawing.Size(759, 153);
@@ -69,12 +70,20 @@
             this.CloseButton.MouseEnter += new System.EventHandler(this.CloseButton_MouseEnter);
             this.CloseButton.MouseLeave += new System.EventHandler(this.CloseButton_MouseLeave);
             // 
+            // TypingProgress
+            // 
+            this.TypingProgress.Location = new System.Drawing.Point(17, 171);
+            this.TypingProgress.Name = "TypingProgress";
+            this.TypingProgress.Size = new System.Drawing.Size(754, 23);
+            this.TypingProgress.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(783, 486);
             this.ControlBox = false;
+            this.Controls.Add(this.TypingProgress);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.TargetText);
             this.Controls.Add(this.SourceText);
@@ -91,6 +100,7 @@
         private System.Windows.Forms.Label SourceText;
         private System.Windows.Forms.TextBox TargetText;
         private System.Windows.Forms.PictureBox CloseButton;
+        private System.Windows.Forms.ProgressBar TypingProgress;
     }
 }
 
