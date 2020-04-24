@@ -13,6 +13,7 @@ namespace TypingSpeed
     public partial class Form1 : Form
     {
         int sec = 0;
+        bool typingStarted = false;
 
         public Form1()
         {
@@ -23,8 +24,7 @@ namespace TypingSpeed
 
         private void InitializeTypingTimer()
         {
-            TypingTimer.Interval = 1000;
-            TypingTimer.Start();
+            TypingTimer.Interval = 1000;            
         }
 
 
@@ -51,6 +51,12 @@ namespace TypingSpeed
 
         private void TargetText_TextChanged(object sender, EventArgs e)
         {
+            if(!typingStarted)
+            {
+                TypingTimer.Start();
+                typingStarted = true;
+            }
+            
             if (TextsAreIdentical())
             {
                 AllowTyping();
@@ -59,7 +65,7 @@ namespace TypingSpeed
             else
             {
                 BlockTyping();
-            }
+            }            
         }
 
         private bool TextsAreIdentical()
@@ -91,7 +97,27 @@ namespace TypingSpeed
         private void TypingTimer_Tick(object sender, EventArgs e)
         {
             sec += 1;
-            TimeProgress.Value = sec;
+            if (sec > 60)
+            {
+                TimeIsUp();
+            }
+
+            try
+            {
+                TimeProgress.Value = sec;
+            }
+            catch
+            {
+
+            }
+            
+        }
+
+        private void TimeIsUp()
+        {
+            TypingTimer.Stop();
+            TargetText.Enabled = false;
+            MessageBox.Show("Time is up!");
         }
     }
 }
