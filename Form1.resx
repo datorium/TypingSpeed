@@ -120,4 +120,7 @@
   <data name="SourceText.Text" xml:space="preserve">
     <value>On a traditional computer, solving a complicated problem is a matter of searching around the internet until you discover a new ability or find a fix. It might be beyond your skills, but you rarely are stopped cold.</value>
   </data>
+  <metadata name="TypingTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

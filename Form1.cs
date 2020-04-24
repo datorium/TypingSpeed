@@ -12,15 +12,26 @@ namespace TypingSpeed
 {
     public partial class Form1 : Form
     {
+        int sec = 0;
+
         public Form1()
         {
             InitializeComponent();
             InitializeProgressBars();
+            InitializeTypingTimer();
         }
+
+        private void InitializeTypingTimer()
+        {
+            TypingTimer.Interval = 1000;
+            TypingTimer.Start();
+        }
+
 
         private void InitializeProgressBars()
         {
             TypingProgress.Maximum = SourceText.Text.Length;
+            TimeProgress.Maximum = 60;
         }
 
         private void CloseButton_MouseEnter(object sender, EventArgs e)
@@ -77,6 +88,10 @@ namespace TypingSpeed
             TargetText.ForeColor = Color.Red;
         }
 
-
+        private void TypingTimer_Tick(object sender, EventArgs e)
+        {
+            sec += 1;
+            TimeProgress.Value = sec;
+        }
     }
 }
