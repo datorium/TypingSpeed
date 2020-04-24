@@ -61,11 +61,21 @@ namespace TypingSpeed
             {
                 AllowTyping();
                 TypingProgress.Value = TargetText.Text.Length;
+                if(TargetText.Text.Length == SourceText.Text.Length)
+                {
+                    TypingOver();
+                }
             }
             else
             {
                 BlockTyping();
-            }            
+            }
+            UpdateCurrentCPM();
+        }
+
+        private void UpdateCurrentCPM()
+        {
+            CurrentCPM.Text = "Current CPM: " + CalculateCPM();
         }
 
         private bool TextsAreIdentical()
@@ -99,7 +109,7 @@ namespace TypingSpeed
             sec += 1;
             if (sec > 60)
             {
-                TimeIsUp();
+                TypingOver();
             }
 
             try
@@ -113,11 +123,25 @@ namespace TypingSpeed
             
         }
 
-        private void TimeIsUp()
+        private int CalculateCPM()
+        {
+            int cpm;
+            try
+            {
+                cpm = TargetText.Text.Length * 60 / sec;
+                return cpm;
+            }
+            catch
+            {
+                return 0;
+            }            
+        }
+
+        private void TypingOver()
         {
             TypingTimer.Stop();
             TargetText.Enabled = false;
-            MessageBox.Show("Time is up!");
+            MessageBox.Show("Time is up! Your result is " + CalculateCPM());
         }
     }
 }
