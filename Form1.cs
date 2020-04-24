@@ -43,7 +43,7 @@ namespace TypingSpeed
             if (TextsAreIdentical())
             {
                 AllowTyping();
-                TypingProgress.Value += 1;
+                TypingProgress.Value = TargetText.Text.Length;
             }
             else
             {
