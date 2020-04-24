@@ -120,7 +120,7 @@ namespace TypingSpeed
             {
 
             }
-            
+            UpdateCurrentCPM();
         }
 
         private int CalculateCPM()
